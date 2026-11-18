@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>광고 주간 보고서 | Ads Workbench</title><link rel="stylesheet" href="styles.css">
+<script defer src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+<script defer src="app.js"></script></head>
+<body><main class="shell"><header><div class="eyebrow">ADS WORKBENCH</div><h1>주간 광고 보고서</h1><p>고객의 광고 원본을 넣고 전주 현황과 금주 개선사항을 확인하세요.</p></header>
+<section class="panel form-panel"><div class="section-head"><span class="step">01</span><div><h2>원본 설정</h2><p>파일은 이 브라우저에서만 처리됩니다. 서버에 업로드하거나 저장하지 않습니다.</p></div></div>
+<div class="form-grid"><label>고객명<input id="client" placeholder="예: 온누리스토어" autocomplete="off"></label><label>광고 매체<select id="platform"><option value="meta">메타 DA</option><option value="naver">네이버 SA</option><option value="coupang">쿠팡 SA</option></select></label>
+<label class="file">금주 원본 <span class="required">필수</span><input id="current" type="file" accept=".xlsx,.xlsb,.csv"><small>Excel 또는 CSV</small></label><label class="file">전주 원본 <span class="optional">비교 시 필요</span><input id="previous" type="file" accept=".xlsx,.xlsb,.csv"><small>없으면 금주 현황만 생성</small></label></div>
+<details id="dates"><summary>메타 원본 한 파일에 여러 기간이 있나요?</summary><p>같은 파일을 금주·전주에 선택하고 각 기간을 입력하세요. 각 행의 보고 시작일과 종료일로 구분합니다.</p><div class="date-grid"><label>금주 시작<input id="currentStart" type="date"></label><label>금주 종료<input id="currentEnd" type="date"></label><label>전주 시작<input id="previousStart" type="date"></label><label>전주 종료<input id="previousEnd" type="date"></label></div></details>
+<div class="form-actions"><button id="generate" type="button">보고서 생성 <span aria-hidden="true">→</span></button><p id="status" role="status" aria-live="polite"></p></div></section>
+<div id="result" hidden></div><footer>메타 · 네이버 · 쿠팡의 광고 관리자 원본 형식을 지원합니다. 전환 기준과 매출 귀속 기간은 매체 설정을 확인하세요.</footer></main></body></html>
+
