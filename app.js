@@ -109,7 +109,7 @@ async function generate(){
     if(Boolean(cs)!==Boolean(ce)||Boolean(ps)!==Boolean(pe))throw Error('기간의 시작일과 종료일을 함께 입력하세요.');
     if((cs&&cs>ce)||(ps&&ps>pe))throw Error('기간의 시작일이 종료일보다 늦습니다.');
     if(platform!=='meta'&&(cs||ps))throw Error('날짜 필터는 메타 원본에만 사용합니다.');
-    if(previousFile===currentFile&&!ps)throw Error('같은 파일을 비교하려면 금주와 전주 기간을 지정하세요.');
+    if(previousFile && previousFile.name===currentFile.name && previousFile.size===currentFile.size && previousFile.lastModified===currentFile.lastModified && !ps)throw Error('같은 파일을 금주·전주에 넣었습니다. 메타 원본이면 두 기간을 지정하세요.');
     const currentBook=await workbook(currentFile),previousBook=previousFile?(previousFile===currentFile?currentBook:await workbook(previousFile)):null;
     const cur=ingest(currentBook,platform,cs,ce);
     const prev=previousBook?ingest(previousBook,platform,ps,pe):(ps?ingest(currentBook,platform,ps,pe):null);
