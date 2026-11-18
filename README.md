@@ -20,5 +20,5 @@
 
 ## 배포
 
-`main` 브랜치의 루트에서 GitHub Pages로 발행합니다. 저장소 **Settings → Pages → Build and deployment → Source: Deploy from a branch**, Branch `main`, Folder `/ (root)`를 선택하면 됩니다. 이후 `main`에 변경이 들어가면 자동 반영됩니다.
+GitHub Pages는 `main` 브랜치의 루트로 설정되어 있습니다. 이후 `main`에 변경이 들어가면 자동 반영됩니다.
 
